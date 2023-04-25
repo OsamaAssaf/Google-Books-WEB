@@ -1,0 +1,90 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Google Books</title>
+    <link rel="icon" type="image/x-icon" href="icon/favicon.ico">
+    <script src="https://kit.fontawesome.com/8c889e6980.js" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="scss/style.css">
+    <script type="text/javascript" src="scripts/jquery-3.6.0.js" defer></script>
+    <script type="text/javascript" src="scripts/main.js" defer></script>
+</head>
+<body>
+
+<header id="header">
+    <h1>My Google Books</h1>
+</header>
+
+<main id="main">
+
+    <div class="search-bar">
+        <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <input type="text" placeholder="Search for books here" id="search-text">
+        <button id="clear-btn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <section class="book-container">
+
+        <div id="list-of-books"></div>
+
+        <p id="initial-text" class="show">Type something in search bar to view book.</p>
+        <p id="error-msg">Something went wrong!<br>Make sure you entered a valid book title, Or check your connection.
+        </p>
+        <div id="progress-bar">
+            <span class="indicator"></span>
+        </div>
+    </section>
+
+</main>
+
+<dialog id="info-dialog">
+    <span id="close-model"><i class="fa-solid fa-xmark"></i></span>
+    <div class="content"></div>
+</dialog>
+
+<footer id="footer">
+    <div class="row-1">
+        <p>Get connected with us on social network!</p>
+        <div class="social-container">
+            <a class="social-btn" href="https://www.facebook.com/osama.assaf.5" target="_blank"><i
+                        class="fa-brands fa-facebook-f"></i></a>
+            <a class="social-btn" href="https://www.instagram.com/osama.assaf1/" target="_blank"><i
+                        class="fa-brands fa-instagram"></i></a>
+            <a class="social-btn" href="https://www.instagram.com/osama.assaf1/" target="_blank"><i
+                        class="fa-brands fa-twitter"></i></a>
+            <a class="social-btn" href="https://www.linkedin.com/in/osama-assaf-392820216/" target="_blank"><i
+                        class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+    </div>
+    <div class="row-2">
+        <div>
+            <p class="title">Contact</p>
+            <ul class="content">
+                <li>
+                    <i class="fa-solid fa-house"></i>
+                    <p>Jordan, Amman</p>
+                </li>
+                <li>
+                    <i class="fa-solid fa-envelope"></i>
+                    <p>osama.assaf.o@gmail.com</p>
+                </li>
+                <li>
+                    <i class="fa-solid fa-phone-flip"></i>
+                    <p>+962786729637</p>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="row-3">
+        <p>&copy; 2022 Copyright: Osama Assaf</p>
+    </div>
+</footer>
+
+
+</body>
+</html>

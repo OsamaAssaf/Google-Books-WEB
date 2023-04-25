@@ -1,0 +1,355 @@
+:root {
+  --primaryColor: #6356CA;
+  --secondaryColor: #1C2431;
+  --thirdColor: #151B27;
+  --redColor: #FF8787;
+  --textColor: #fff;
+  --bgColor: #9689FD;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", Tahoma, sans-serif;
+}
+
+#header {
+  background-color: var(--primaryColor);
+  padding: 1rem;
+  text-align: center;
+  color: var(--textColor);
+  letter-spacing: 4px;
+}
+
+#main {
+  padding: 3rem 1rem;
+  background-color: var(--bgColor);
+  min-height: 50vh;
+  position: relative;
+}
+#main .search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--secondaryColor);
+  border-radius: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: white;
+}
+#main .search-bar input {
+  flex: 1;
+  border: none;
+  outline: none;
+}
+#main .search-bar input::placeholder {
+  font-size: 15px;
+}
+#main .search-bar button {
+  cursor: pointer;
+  border: none;
+}
+#main .search-bar #search-btn {
+  background: none;
+  margin-right: 1rem;
+  font-size: 20px;
+  transition: color 0.4s;
+}
+#main .search-bar #search-btn:hover {
+  color: var(--primaryColor);
+}
+#main .search-bar #clear-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: white;
+  background-color: grey;
+  transition: background-color 0.4s;
+}
+#main .search-bar #clear-btn:hover {
+  background-color: var(--redColor);
+}
+#main .book-container {
+  margin-top: 2rem;
+  text-align: center;
+  min-height: 240px;
+}
+#main .book-container #initial-text {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-transform: capitalize;
+  font-size: 24px;
+  letter-spacing: 2px;
+}
+#main .book-container #initial-text.show {
+  display: block;
+}
+#main .book-container #error-msg {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#main .book-container #progress-bar {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 5px;
+  margin: auto;
+  border-radius: 1rem;
+  background-color: var(--secondaryColor);
+  overflow: hidden;
+}
+@keyframes indicator-animation {
+  0% {
+    margin-left: -25%;
+  }
+  20% {
+    margin-left: 0;
+  }
+  40% {
+    margin-left: 25%;
+  }
+  60% {
+    margin-left: 50%;
+  }
+  80% {
+    margin-left: 75%;
+  }
+  100% {
+    margin-left: 100%;
+  }
+}
+#main .book-container #progress-bar .indicator {
+  display: block;
+  background-color: var(--primaryColor);
+  width: 25%;
+  height: inherit;
+  animation-name: indicator-animation;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+#main .book-container #list-of-books {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 16px;
+  row-gap: 32px;
+}
+#main .book-container #list-of-books .card {
+  height: 160px;
+  max-width: 400px;
+  background-color: var(--secondaryColor);
+  padding: 0.5rem;
+  display: flex;
+  border-radius: 0.5rem;
+  color: var(--textColor);
+  position: relative;
+}
+#main .book-container #list-of-books .card img {
+  position: absolute;
+  left: 8px;
+  top: -16px;
+  width: 110px;
+  height: 160px;
+  border-radius: inherit;
+}
+#main .book-container #list-of-books .card .col {
+  margin-left: 116px;
+  width: 70%;
+  text-align: start;
+  padding-left: 8px;
+}
+#main .book-container #list-of-books .card .col .title, #main .book-container #list-of-books .card .col .sub-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+#main .book-container #list-of-books .card .col .more-info {
+  background-color: var(--primaryColor);
+  color: var(--textColor);
+  border: none;
+  margin-top: 1rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.4s, color 0.4s;
+}
+#main .book-container #list-of-books .card .col .more-info:hover {
+  background-color: var(--bgColor);
+  color: var(--secondaryColor);
+}
+
+#info-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  width: 540px;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+#info-dialog #close-model {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  cursor: pointer;
+}
+#info-dialog .row-1 {
+  display: flex;
+}
+#info-dialog .row-1 img {
+  margin-right: 1rem;
+  border: 1px solid var(--primaryColor);
+  border-radius: 0.5rem;
+}
+#info-dialog .row-2 {
+  margin-top: 1rem;
+}
+#info-dialog .row-2 dl {
+  counter-reset: authors;
+  display: flex;
+  flex-wrap: wrap;
+}
+#info-dialog .row-2 dl dt {
+  flex-basis: 100%;
+}
+#info-dialog .row-2 dl dd {
+  margin-left: 1rem;
+}
+#info-dialog .row-2 dl dd::before {
+  counter-increment: authors;
+  content: counters(authors, ".") ". ";
+}
+#info-dialog .row-3 {
+  margin-top: 1rem;
+}
+#info-dialog .row-3 .description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+#info-dialog .row-4 {
+  margin-top: 1rem;
+}
+#info-dialog .row-4 ul {
+  list-style-type: none;
+}
+#info-dialog .row-5 {
+  margin-top: 1rem;
+}
+#info-dialog .row-5 a {
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  padding: 0.5rem 1rem;
+  background-color: var(--primaryColor);
+  color: var(--textColor);
+  border-radius: 0.5rem;
+}
+
+#info-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+@keyframes showDialog {
+  from {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+#info-dialog[open] {
+  animation: showDialog 500ms ease normal;
+}
+
+#footer {
+  color: var(--textColor);
+}
+#footer .row-1 {
+  background-color: var(--primaryColor);
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+#footer .row-1 .social-container .social-btn {
+  background: none;
+  border: none;
+  margin: 0 1rem;
+  color: var(--textColor);
+  transition: color 0.4s;
+}
+#footer .row-1 .social-container .social-btn:hover {
+  color: var(--thirdColor);
+}
+#footer .row-2 {
+  background-color: var(--secondaryColor);
+  padding: 2rem;
+}
+#footer .row-2 .title {
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+  position: relative;
+}
+#footer .row-2 .title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  height: 3px;
+  width: 48px;
+  background-color: var(--primaryColor);
+}
+#footer .row-2 .content {
+  list-style-type: none;
+}
+#footer .row-2 .content li {
+  margin-bottom: 1rem;
+}
+#footer .row-2 .content li i {
+  margin-right: 1rem;
+}
+#footer .row-2 .content li p {
+  display: inline;
+}
+#footer .row-3 {
+  background-color: var(--thirdColor);
+  padding: 1rem;
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  #footer .row-1 {
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
